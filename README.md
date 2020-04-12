@@ -30,14 +30,24 @@ Wind: 3 m/s, E.
 
 ### Как запустить и собрать
 
-Предварительно нужно переименовать файл settings_sample.json в settings.json и вставить туда корректные токены.
+Предварительно нужно переименовать файл settings_sample.json в settings.json и вставить туда корректные токены. Кроме того, нужно поставить библиотеку boost и компилятор clang++ (на моей машине gcc отказывается компилировать designated-инициализаторы из C++20, clang справляется отлично). Библиотека tgbot-cpp тянется вместе с репозиторием как подмодуль, отдельно устанавливать ее не нужно.
 
 ```
 $ git clone --recurse-submodules https://github.com/kovdan01/weather-bot.git
 $ mkdir build
 $ cd build
-$ cmake ../weather-bot/
-$ make
+$ cmake -DCMAKE_CXX_COMPILER=clang++ ../weather-bot/
+$ cmake --build .
 ```
 
-Запускать необходимо исполняемый файл weather-smart-bot. Если сервер находится в России, то нужно делать это через torsocks из-за блокировки API Telegram
+Запускать необходимо исполняемый файл weather-smart-bot:
+
+```
+./weather-smart-bot
+```
+
+Если сервер находится в России, то нужно делать это через torsocks из-за блокировки API Telegram:
+
+```
+torsocks ./weather-smart-bot
+```
