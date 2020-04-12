@@ -40,6 +40,7 @@ struct StringConstants
 
     std::string internal_error;
     std::string unknown_command;
+    std::string not_a_number;
     std::string out_of_range;
     std::string cancel_changes;
 
@@ -113,6 +114,7 @@ inline const std::unordered_map<Language, StringConstants> language_pack =
 
             .internal_error = "An internal error occurred, please try again later.",
             .unknown_command = "Unknown command, please try again.",
+            .not_a_number = "is not a valid number. Please try again.",
             .out_of_range = "The given number is ot of valid range. Please try again.",
             .cancel_changes = "Changes were cancelled.",
 
@@ -146,7 +148,6 @@ inline const std::unordered_map<Language, StringConstants> language_pack =
             .language.change = "Сменить язык",
             .language.change_success = "Язык успешно изменен на русский.",
 
-
             .city.choose = "Пожалуйста, выберите ваш город из списка или введите его вручную:",
             .city.choose_success = "Выбран город: ",
             .city.change = "Сменить город",
@@ -161,6 +162,7 @@ inline const std::unordered_map<Language, StringConstants> language_pack =
 
             .internal_error = "Произошла внутренняя ошибка, пожалуйста, попробуйте позднее.",
             .unknown_command = "Неизвестная команда, пожалуйста, попробуйте еще раз.",
+            .not_a_number = "не является числом. Попробуйте еще раз.",
             .out_of_range = "Введенное число выходит за границы нужного диапазона. Пожалуйста, попробуйте еще раз.",
             .cancel_changes = "Изменения отменены.",
 
