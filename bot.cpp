@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cassert>
 #include <sstream>
+#include <iostream>
 
 namespace weather_bot
 {
@@ -13,6 +14,7 @@ Bot::Bot(std::string tg_token, std::string weather_token, std::unique_ptr<nlohma
     , m_weather(std::move(weather_token))
     , m_cities(std::move(cities))
 {
+    std::cout << "Started bot initialization...";
     if (m_cities == nullptr)
     {
         m_cities = std::make_unique<nlohmann::json>();
@@ -44,6 +46,8 @@ Bot::Bot(std::string tg_token, std::string weather_token, std::unique_ptr<nlohma
     });
 
     m_bot.getEvents().onNonCommandMessage(std::bind(process_message, std::placeholders::_1, this));
+
+    std::cout << "Success!";
 
     poll_loop();
 }
