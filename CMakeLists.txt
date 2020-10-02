@@ -6,13 +6,13 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SOURCES
-    main.cpp
-    weather_api.cpp
-    bot.cpp)
+    src/main.cpp
+    src/weather_api.cpp
+    src/bot.cpp)
 set(HEADERS
-    weather_api.h
-    bot.h
-    language_support.h)
+    src/weather_api.h
+    src/bot.h
+    src/language_support.h)
 
 add_executable(weather-smart-bot ${SOURCES} ${HEADERS})
 
@@ -29,5 +29,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE TgBot)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Boost::system)
 
-file(COPY settings.json DESTINATION ${PROJECT_BINARY_DIR})
-file(COPY city.list.json DESTINATION ${PROJECT_BINARY_DIR})
+file(COPY config/settings.json DESTINATION ${PROJECT_BINARY_DIR})
+file(COPY config/city.list.json DESTINATION ${PROJECT_BINARY_DIR})
